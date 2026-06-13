@@ -3,7 +3,7 @@ services:
     name: ai-dashboard
     env: node
     plan: free
-    buildCommand: npm run bootstrap && npm run build
+    buildCommand: npm run bootstrap && npm run db:setup && npm run db:seed && npm run build
     startCommand: npm run start
     envVars:
       - key: NODE_ENV

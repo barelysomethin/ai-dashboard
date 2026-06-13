@@ -23,6 +23,21 @@ A premium, full-stack deployment dashboard designed for managing and monitoring 
 
 ---
 
+## ✨ Key Features
+
+*   **Interactive Landing Screen**: A sleek, premium developer landing page welcoming users with a high-contrast dark layout and smooth transitions.
+*   **Secure Authentication Portal**: Core login view integrated with state-based session management, featuring quick-fill developer and admin credential helpers.
+*   **Consolidated Analytics Dashboard**: Shows aggregate cluster-wide metrics (total CPU/Memory usage, cumulative API calls) and status charts of all deployed models.
+*   **Live Hardware Telemetry & Simulator**: A backend simulator updates CPU, memory, and apiCall workloads in the background every 5 seconds to represent real-time cluster telemetry.
+*   **Dynamic Terminal Logs Stream**: Real-time interactive text logs for model container status updates, tracking events like image downloads, weights load state, and CUDA device initialization.
+*   **Comprehensive Project Control**: Search, sort, and filter model instances by status (Active, Failed, Deploying, Paused) and environment context (Production, Staging).
+*   **API Credentials Manager**: Complete CRUD operations for API keys. Implements secure token generation and mask-hint storage (showing plaintext token only once upon generation).
+*   **Role-Based Access Control (RBAC)**:
+    *   **Admin**: Full operational permissions (inspect logs, create/delete projects, trigger redeployments, manage API keys).
+    *   **Developer**: Observability-only permissions (read-only view of projects, inspect logs, view keys/variables, with modifications and actions disabled).
+
+---
+
 ## 🛠️ Architecture & Tech Stack
 
 The application is structured as a light monorepo separating front-end interface and back-end service layers.
@@ -82,18 +97,6 @@ docker-compose up --build
 
 *   **Frontend Console**: Accessible at `http://localhost:5173`
 *   **Backend Express Server**: Accessible at `http://localhost:5000`
-
----
-
-### Option C: Cloud Deployment (Render Blueprint)
-
-This project contains a declarative `render.yaml` configuration for automated one-click deployments on **Render**:
-
-1. Log in to the [Render Dashboard](https://dashboard.render.com/).
-2. Click **New > Blueprint** (or click the **Blueprints** tab).
-3. Connect and select your GitHub repository.
-4. Render will automatically parse the `render.yaml` template, configure the environment, install and build production assets, and run the unified full-stack service.
-5. The app will be live on a secure HTTPS endpoint (serving both frontend UI and backend API routes).
 
 ---
 

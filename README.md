@@ -4,6 +4,25 @@ A premium, full-stack deployment dashboard designed for managing and monitoring 
 
 ---
 
+## 📷 Screenshots
+
+### 🖥️ Dashboard Console
+![AI Dashboard - Main console dashboard](./assets/screenshots/dashboard.png)
+
+### 🚀 Landing Screen
+![AI Dashboard - Landing screen](./assets/screenshots/landing.png)
+
+### 🔐 Login Portal
+![AI Dashboard - Authentication portal](./assets/screenshots/login.png)
+
+### 📁 Project Management
+![AI Dashboard - Project list details](./assets/screenshots/projects.png)
+
+### 👤 Developer Profile & API Keys
+![AI Dashboard - Developer configuration & api keys](./assets/screenshots/profile.png)
+
+---
+
 ## 🛠️ Architecture & Tech Stack
 
 The application is structured as a light monorepo separating front-end interface and back-end service layers.

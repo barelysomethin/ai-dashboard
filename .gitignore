@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+package-lock.json
+client/package-lock.json
+server/package-lock.json
+
+# Builds
+dist/
+client/dist/
+build/
+
+# SQLite Database
+server/prisma/dev.db
+server/prisma/dev.db-journal
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

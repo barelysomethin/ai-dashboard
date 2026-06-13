@@ -1,0 +1,65 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("Developer") // "Admin" or "Developer"
+  apiKeys   ApiKey[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id            String       @id @default(uuid())
+  name          String
+  description   String
+  modelProvider String       // "HuggingFace", "Replicate", "Ollama", "OpenAI", "Custom"
+  status        String       // "Active", "Paused", "Failed", "Deploying"
+  environment   String       // "Production", "Staging"
+  cpuUsage      Float        @default(0.0) // Percentage (e.g. 15.5%)
+  memoryUsage   Float        @default(0.0) // MB (e.g. 512.0)
+  apiCalls      Int          @default(0)
+  deployments   Deployment[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Deployment {
+  id         String     @id @default(uuid())
+  projectId  String
+  project    Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  version    String     // e.g. "v1.0.4"
+  commitHash String     // e.g. "a9f3d1e"
+  status     String     // "Deploying", "Success", "Failed"
+  logs       LogEntry[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model LogEntry {
+  id           String     @id @default(uuid())
+  deploymentId String
+  deployment   Deployment @relation(fields: [deploymentId], references: [id], onDelete: Cascade)
+  timestamp    DateTime   @default(now())
+  level        String     // "INFO", "WARN", "ERROR"
+  message      String
+}
+
+model ApiKey {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String   // Name/label of the key (e.g. "Production CLI")
+  token     String   @unique // Hashed or plain text token
+  hint      String   // e.g. "db_live_..." or masked
+  createdAt DateTime @default(now())
+}

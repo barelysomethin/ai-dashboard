@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend API for AI Deployment Dashboard",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:setup": "prisma db push",
+    "db:seed": "node src/db/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "ai-deployment-dashboard": "file:..",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.14.0"
+  }
+}

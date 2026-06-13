@@ -66,6 +66,18 @@ docker-compose up --build
 
 ---
 
+### Option C: Cloud Deployment (Render Blueprint)
+
+This project contains a declarative `render.yaml` configuration for automated one-click deployments on **Render**:
+
+1. Log in to the [Render Dashboard](https://dashboard.render.com/).
+2. Click **New > Blueprint** (or click the **Blueprints** tab).
+3. Connect and select your GitHub repository.
+4. Render will automatically parse the `render.yaml` template, configure the environment, install and build production assets, and run the unified full-stack service.
+5. The app will be live on a secure HTTPS endpoint (serving both frontend UI and backend API routes).
+
+---
+
 ## 🔐 Evaluation Credentials
 
 For evaluating the **Role-Based Access Control (RBAC)** features, use the quick-fill credential helpers on the login page or manually enter:

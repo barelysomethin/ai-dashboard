@@ -19,17 +19,15 @@ RUN npm install --prefix server
 
 # Copy the rest of the application files
 COPY . .
-
-# Generate Prisma client
-RUN npx prisma generate --schema=server/prisma/schema.prisma
+# Generate Prisma client using local server package version
+RUN npm run prisma:generate --prefix server
 
 # Build Vite client static files
 RUN npm run build --prefix client
 
 # Setup and seed the SQLite database at build time
-RUN npx prisma db push --schema=server/prisma/schema.prisma --accept-data-loss
+RUN npm run db:setup --prefix server
 RUN node server/src/db/seed.js
-
 EXPOSE 3000
 
 # Set environment variables for production serving

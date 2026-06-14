@@ -1,7 +1,7 @@
 FROM node:18-alpine
 
-# Install system dependencies including OpenSSL compatibility library for Prisma
-RUN apk add --no-cache openssl openssl1.1-compat libc6-compat
+# Install system dependencies including OpenSSL library for Prisma
+RUN apk add --no-cache openssl libc6-compat
 
 WORKDIR /app
 

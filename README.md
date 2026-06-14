@@ -116,4 +116,10 @@ For evaluating the **Role-Based Access Control (RBAC)** features, use the quick-
 1.  **SQLite Storage**: SQLite was selected as the database driver. This allows the application to run out-of-the-box with zero database configuration or external cloud dependencies required from the evaluator. For a production deployment, this can be swapped to PostgreSQL in `schema.prisma` in seconds.
 2.  **Mock Deployment Telemetry**: The redeployment process simulates authentic logs (CUDA loading, image pulling, shape padding checks) over a ~10-second timeline. Metrics fluctuate dynamically in the background every 5 seconds to represent real-time cluster workloads.
 3.  **Single-Time Key Visibility**: In alignment with modern security practices, API keys display their plaintext token only once immediately after generation. Subsequent views only display masked hints.
-4.  **Local SVG Icons & Vanilla CSS Theme**: Replaced the external `lucide-react` icon framework with custom local SVG wrapper components to minimize bundle footprint and dependencies. Overhauled the application theme to a premium dark monochrome layout to fit high-end developer console styling requirements.
+
+## DEMO-VIDEO
+
+
+https://github.com/user-attachments/assets/fdf7672d-488d-496a-a215-4c911c2b27cb
+
+

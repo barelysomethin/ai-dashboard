@@ -6,7 +6,7 @@
   "main": "server/src/server.js",
   "scripts": {
     "bootstrap": "npm install && npm install --prefix client && npm install --prefix server",
-    "build": "npm install --prefix client && npm install --prefix server && npm run prisma:generate --prefix server && npm run db:setup --prefix server && npm run db:seed --prefix server && npm run build --prefix client",
+    "build": "node -e \"if (process.platform === 'linux') { try { require('child_process').execSync('apk add --no-cache openssl1.1-compat libc6-compat', {stdio: 'inherit'}); } catch (e) {} }\" && npm install --prefix client && npm install --prefix server && npm run prisma:generate --prefix server && npm run db:setup --prefix server && npm run db:seed --prefix server && npm run build --prefix client",
     "start": "npm run start --prefix server",
     "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
     "db:setup": "npm run db:setup --prefix server",

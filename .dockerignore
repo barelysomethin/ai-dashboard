@@ -1,0 +1,13 @@
+.git
+node_modules
+client/node_modules
+server/node_modules
+client/dist
+server/prisma/dev.db
+server/prisma/dev.db-journal
+Dockerfile
+.dockerignore
+docker-compose.yml
+render.yaml
+README.md
+assets/screenshots
